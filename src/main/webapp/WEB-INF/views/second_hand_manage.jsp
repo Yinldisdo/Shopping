@@ -225,6 +225,7 @@
     product.price = document.getElementById("productPrice").value;
     product.counts = document.getElementById("productCount").value;
     product.type = document.getElementById("productType").value;
+    product.user_id = '${currentUser.id}';
     var addResult="";
     $.ajax({
       async : false,

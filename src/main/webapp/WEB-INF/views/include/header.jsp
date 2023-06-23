@@ -37,9 +37,9 @@
                     <li><a href="${cp}/login" methods="post">登录</a></li>
                 </c:if>
                 <c:if test="${not empty currentUser}">
-                    <c:if test="${currentUser.role == 1}">
-                        <li><a href="${cp}/control" methods="post">控制台</a></li>
-                    </c:if>
+<%--                    <c:if test="${currentUser.role == 1}">--%>
+<%--                        <li><a href="${cp}/control" methods="post">控制台</a></li>--%>
+<%--                    </c:if>--%>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 ${currentUser.nickName}

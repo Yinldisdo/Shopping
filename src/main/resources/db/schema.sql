@@ -14,7 +14,6 @@ create table if not exists user_main(
 	name varchar(30) not null,
 	email varchar(50) not null,
 	nick_name varchar(30) not null,
-	role int not null,
 	user_id varchar(32) not null,
 	primary key(id),
 	unique(name),
