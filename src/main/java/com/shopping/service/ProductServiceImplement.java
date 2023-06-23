@@ -75,4 +75,9 @@ public class ProductServiceImplement implements ProductService {
     public List<Product> getAllProduct() {
         return productDao.getAllProduct();
     }
+
+    @Override
+    public List<Product> getAllProductByUserId(String userId) {
+        return productDao.getAllProductByUserId(userId);
+    }
 }

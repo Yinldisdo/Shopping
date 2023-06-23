@@ -34,9 +34,14 @@ public class ProductController {
 
     @RequestMapping(value = "/getAllProducts")
     @ResponseBody
-    public Map<String,Object> getAllProducts(){
+    public Map<String,Object> getAllProducts(String userid){
+        System.out.println(userid);
         List<Product> productList = new ArrayList<>();
-        productList = productService.getAllProduct();
+        if(userid!=null && !userid.equals("")){ //判断用户id是否为空
+            productList = productService.getAllProductByUserId(userid); //调用getAllProductByUserId方法
+        }else{
+            productList = productService.getAllProduct(); //否则调用getAllProduct方法
+        }
         String allProducts = JSONArray.toJSONString(productList);
         Map<String,Object> resultMap = new HashMap<String,Object>();
         resultMap.put("allProducts",allProducts);

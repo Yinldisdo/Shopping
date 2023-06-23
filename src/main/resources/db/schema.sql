@@ -15,6 +15,7 @@ create table if not exists user_main(
 	email varchar(50) not null,
 	nick_name varchar(30) not null,
 	role int not null,
+	user_id varchar(32) not null,
 	primary key(id),
 	unique(name),
 	unique(email)
@@ -42,6 +43,7 @@ create table if not exists products(
 	price int not null,
 	counts int not null,
 	type int not null,
+	user_id varchar(32) not null,
 	primary key(id),
 	unique(name)
 );

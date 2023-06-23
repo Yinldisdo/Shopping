@@ -8,7 +8,7 @@
 	  <meta charset="utf-8">
 	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
-	  <title>购物+</title>
+	  <title>天津科技大学跳蚤市场</title>
 	  <link href="${cp}/css/bootstrap.min.css" rel="stylesheet">
 	  <link href="${cp}/css/style.css" rel="stylesheet">
 
@@ -29,19 +29,19 @@
 			<!-- 控制栏 -->
 			<div class="col-sm-3 col-md-2 sidebar sidebar-1">
 				<ul class="nav nav-sidebar">
-					<li class="list-group-item-diy"><a href="#productArea1">衣服配饰 <span class="sr-only">(current)</span></a></li>
-					<li class="list-group-item-diy"><a href="#productArea2">数码产品</a></li>
-					<li class="list-group-item-diy"><a href="#productArea3">书籍办公</a></li>
-					<li class="list-group-item-diy"><a href="#productArea4">游戏周边</a></li>
-					<li class="list-group-item-diy"><a href="#productArea5">生活用品</a></li>
-					<li class="list-group-item-diy"><a href="#productArea6">化妆用品</a></li>
-					<li class="list-group-item-diy"><a href="#productArea7">运动用品</a></li>
+					<li class="list-group-item-diy"><a href="#productArea1">服饰 <span class="sr-only">(current)</span></a></li>
+					<li class="list-group-item-diy"><a href="#productArea2">数码</a></li>
+					<li class="list-group-item-diy"><a href="#productArea3">办公</a></li>
+					<li class="list-group-item-diy"><a href="#productArea4">游戏</a></li>
+					<li class="list-group-item-diy"><a href="#productArea5">生活</a></li>
+					<li class="list-group-item-diy"><a href="#productArea6">化妆</a></li>
+					<li class="list-group-item-diy"><a href="#productArea7">运动</a></li>
 				</ul>
 			</div>
 			<!-- 控制内容 -->
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<div class="jumbotron">
-					<h1>欢迎来到购物+</h1>
+					<h1>欢迎来到天科闲置</h1>
 					<p>购物+是一个非常优秀的购物网站，你可以在这里买到物美价廉的东西，虽然它只是练习用的项目，哈哈哈哈</p>
 				</div>
 

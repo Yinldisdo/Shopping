@@ -57,6 +57,11 @@ public class UserController {
         return "control";
     }
 
+    @RequestMapping(value = "/second_hand_manage")
+    public String second_hand_manage() {
+        return "second_hand_manage";
+    }
+
     @RequestMapping(value = "/doLogin", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> doLogin(String userNameOrEmail, String password, HttpSession httpSession) {

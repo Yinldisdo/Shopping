@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>商品详情</title>
+    <title>天科闲置 - 商品详情</title>
 
       <link href="${cp}/css/bootstrap.min.css" rel="stylesheet">
       <link href="${cp}/css/style.css" rel="stylesheet">
@@ -17,10 +17,6 @@
       <script src="${cp}/js/bootstrap.min.js" type="text/javascript"></script>
       <script src="${cp}/js/layer.js" type="text/javascript"></script>
 
-    <!--[if lt IE 9]>
-      <script src="${cp}/js/html5shiv.min.js"></script>
-      <script src="${cp}/js/respond.min.js"></script>
-    <![endif]-->
   </head>
   <body>
     <!--导航栏部分-->
@@ -43,23 +39,23 @@
             <div class="col-sm-5 col-md-5 detail-x">
                 <table class="table table-striped">
                     <tr>
-                        <th>商品名称</th>
+                        <th>名称</th>
                         <td>${productDetail.name}</td>
                     </tr>
                     <tr>
-                        <th>商品价格</th>
+                        <th>二手价</th>
                         <td>${productDetail.price}</td>
                     </tr>
                     <tr>
-                        <th>商品描述</th>
-                        <td>${productDetail.description}</td>
-                    </tr>
-                    <tr>
-                        <th>商品类别</th>
+                        <th>类别</th>
                         <td>${productDetail.type}</td>
                     </tr>
                     <tr>
-                        <th>商品库存</th>
+                        <th>联系人</th>
+                        <td>${productDetail.description}</td>
+                    </tr>
+                    <tr>
+                        <th>联系方式</th>
                         <td>${productDetail.counts}</td>
                     </tr>
                     <tr>
@@ -86,8 +82,8 @@
             <div class="col-sm-1 col-md-1 col-lg-1"></div>
             <div class="col-sm-10 col-md-10 col-lg-10">
                 <hr class="division"/>
-                <table class="table evaluationTable" border="0" id="evaluation">
-                </table>
+                <h3>商品详情</h3>
+                ${productDetail.description}
                 <hr/>
                 <div id="inputArea"></div>
             </div>

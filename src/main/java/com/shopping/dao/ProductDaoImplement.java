@@ -88,4 +88,12 @@ public class ProductDaoImplement implements ProductDao {
         Query query = sessionFactory.getCurrentSession().createQuery(hql);
         return query.list();
     }
+
+    @Override
+    public List<Product> getAllProductByUserId(String userId) {
+        String hql = "from Product where user_id = :userId";
+        Query query = sessionFactory.getCurrentSession().createQuery(hql);
+        query.setParameter("userId", userId);
+        return query.list();
+    }
 }

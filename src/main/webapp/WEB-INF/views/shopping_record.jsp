@@ -11,6 +11,7 @@
     <title>购物+</title>
     <link href="${cp}/css/bootstrap.min.css" rel="stylesheet">
     <link href="${cp}/css/style.css" rel="stylesheet">
+    <link href="https://www.baidu.com" rel="stylesheet">
 
     <script src="${cp}/js/jquery.min.js" type="text/javascript"></script>
     <script src="${cp}/js/bootstrap.min.js" type="text/javascript"></script>
@@ -29,8 +30,8 @@
     <div class="row">
         <div class="col-sm-10  col-md-10 col-sm-offset-1 col-md-offset-1">
             <div class="jumbotron">
-                <h1>欢迎来到订单页</h1>
-                <p>您的购买清单为</p>
+                <h1>订单页</h1>
+                <p>您的购物车：</p>
             </div>
         </div>
         <div class="col-sm-10  col-md-10 col-sm-offset-1 col-md-offset-1">
@@ -180,7 +181,7 @@
             unHandleHTML='<div class="row">'+
                             '<div class="col-sm-3 col-md-3 col-lg-3"></div> '+
                             '<div class="col-sm-6 col-md-6 col-lg-6">'+
-                                '<h2>没有相关订单</h2>'+
+                                '<h2>没有订单</h2>'+
                             '</div>'+
                         '</div>';
         }
@@ -190,7 +191,7 @@
             transportHTML = '<div class="row">'+
                     '<div class="col-sm-3 col-md-3 col-lg-3"></div> '+
                     '<div class="col-sm-6 col-md-6 col-lg-6">'+
-                    '<h2>没有相关订单</h2>'+
+                    '<h2>没有订单</h2>'+
                     '</div>'+
                     '</div>';
         }
@@ -200,7 +201,7 @@
             receiveHTML = '<div class="row">'+
                     '<div class="col-sm-3 col-md-3 col-lg-3"></div> '+
                     '<div class="col-sm-6 col-md-6 col-lg-6">'+
-                    '<h2>没有相关订单</h2>'+
+                    '<h2>没有订单</h2>'+
                     '</div>'+
                     '</div>';
         }
@@ -210,7 +211,7 @@
             allHTML = '<div class="row">'+
                     '<div class="col-sm-3 col-md-3 col-lg-3"></div> '+
                     '<div class="col-sm-6 col-md-6 col-lg-6">'+
-                    '<h2>没有相关订单</h2>'+
+                    '<h2>没有订单</h2>'+
                     '</div>'+
                     '</div>';
         }
