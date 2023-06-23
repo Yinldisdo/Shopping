@@ -103,7 +103,10 @@ public class UserController {
                 System.out.println(email);
                 user1.setNickName(nickName);
                 System.out.println(nickName);
-                user1.setRole(0);
+                UUID uuid = UUID.randomUUID();
+                String user_id = uuid.toString().replaceAll("-","");
+                user1.setUser_id(user_id);
+                System.out.println(user_id);
                 userService.addUser(user1);
                 user1 = userService.getUser(userName);
                 UserDetail userDetail = new UserDetail();

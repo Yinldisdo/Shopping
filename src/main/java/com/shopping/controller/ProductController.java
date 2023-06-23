@@ -19,10 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by 14437 on 2017/3/1.
@@ -57,7 +54,7 @@ public class ProductController {
 
     @RequestMapping(value = "/addProduct", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> addProduct(String name,String description,String keyWord,int price,int counts,int type) {
+    public Map<String, Object> addProduct(String name,String description,String keyWord,int price,int counts,int type,String user_id) {
         System.out.println("添加了商品："+name);
         String result ="fail";
         Product product = new Product();
@@ -67,6 +64,7 @@ public class ProductController {
         product.setPrice(price);
         product.setCounts(counts);
         product.setType(type);
+        product.setUser_id(user_id);
         productService.addProduct(product);
         result = "success";
         Map<String,Object> resultMap = new HashMap<String,Object>();

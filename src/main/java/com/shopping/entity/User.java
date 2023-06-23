@@ -16,7 +16,8 @@ public class User {
     private String name;
     private String email;
     private String nickName;
-    private int role;
+
+    private String user_id;
 
     @Id
     @GenericGenerator(name = "generator", strategy = "increment") //设置主键自增
@@ -59,12 +60,8 @@ public class User {
         this.nickName = nickName;
     }
 
-    @Column(name="role")
-    public int getRole() {
-        return role;
-    }
 
-    public void setRole(int role) {
-        this.role = role;
-    }
+    public String getUser_id() { return user_id; }
+
+    public void setUser_id(String user_id) { this.user_id = user_id; }
 }
