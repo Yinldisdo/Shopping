@@ -40,7 +40,7 @@ docker-compose up -d
 
 ## 默认用户
 - user: user1
-- password: 123
+- password: 12344
 
 - user: admin
 - password: admin
