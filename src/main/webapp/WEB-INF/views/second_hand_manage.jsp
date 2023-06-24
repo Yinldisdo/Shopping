@@ -61,7 +61,7 @@
             <div class="form-group">
               <label for="productName" class="col-sm-2 col-md-2 control-label">商品名称</label>
               <div class="col-sm-6 col-md-6">
-                <input type="text" class="form-control" id="productName" placeholder="倚天剑" />
+                <input type="text" class="form-control" id="productName" placeholder="商品名称" />
               </div>
             </div>
             <div class="form-group">
@@ -73,7 +73,7 @@
             <div class="form-group">
               <label for="keyWord" class="col-sm-2 col-md-2 control-label">关键词</label>
               <div class="col-sm-6 col-md-6">
-                <textarea type="text" class="form-control" id="keyWord" placeholder="xxxx;xxxx;xxxx"></textarea>
+                <textarea type="text" class="form-control" id="keyWord" placeholder="关键词1;关键词2;"></textarea>
               </div>
             </div>
             <div class="form-group">
@@ -83,7 +83,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="productCount" class="col-sm-2 col-md-2 control-label">商品数量</label>
+              <label for="productCount" class="col-sm-2 col-md-2 control-label">商品原价</label>
               <div class="col-sm-6 col-md-6">
                 <input type="text" class="form-control" id="productCount" placeholder="100" />
               </div>
@@ -92,13 +92,13 @@
               <label for="productType" class="col-sm-2 col-md-2 control-label">商品类别</label>
               <div class="col-sm-6 col-md-6">
                 <select name="productType" class="form-control" id="productType">
-                  <option value="1">衣服配饰</option>
-                  <option value="2">数码产品</option>
-                  <option value="3">书籍办公</option>
-                  <option value="4">游戏周边</option>
-                  <option value="5">生活用品</option>
-                  <option value="6">化妆用品</option>
-                  <option value="7">运动用品</option>
+                  <option value="1">服饰</option>
+                  <option value="2">数码</option>
+                  <option value="3">书籍</option>
+                  <option value="4">游戏</option>
+                  <option value="5">生活</option>
+                  <option value="6">化妆</option>
+                  <option value="7">运动</option>
                 </select>
               </div>
             </div>
@@ -151,7 +151,6 @@
               '<p class="font-styles center">'+allProduct[i].name+'</p>'+
               '<p class="pull-left">价格：'+allProduct[i].price+'</p>'+
               '<div class = "row">'+
-              '<button class="btn btn-primary update-button" type="submit" onclick="deleteProduct('+allProduct[i].id+')">修改商品</button>'+
               '<button class="btn btn-primary delete-button" type="submit" onclick="deleteProduct('+allProduct[i].id+')">删除商品</button>'+
               '</div>'+
               '</div>'+
@@ -265,7 +264,7 @@
         results = result.result;
         if(results == "success") {
           layer.msg("图片上传成功", {icon: 1});
-          window.location.href = "${cp}/control";
+          window.location.href = "${cp}/second_hand_manage";
           //var imgPreSee = document.getElementById("imgPreSee");
           //var imgSrc = '${cp}/img/'+name+'.jpg';
           //imgPreSee.innerHTML +='<img src="'+imgSrc+')" class="col-sm-12 col-md-12 col-lg-12"/>';
