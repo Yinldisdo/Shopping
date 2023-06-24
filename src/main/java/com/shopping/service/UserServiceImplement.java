@@ -20,12 +20,6 @@ public class UserServiceImplement implements UserService {
     private UserDao userDao;
     @Autowired
     private UserDetailDao userDetailDao;
-    @Autowired
-    private ShoppingRecordDao shoppingRecordDao;
-    @Autowired
-    private ShoppingCarDao shoppingCarDao;
-    @Autowired
-    private EvaluationDao evaluationDao;
 
     @Override
     public User getUser(int id) {
@@ -48,9 +42,6 @@ public class UserServiceImplement implements UserService {
     public Response deleteUser(int id) {
         //判断此用户是否存在购买记录、评价记录、购物车记录，如果存在，则应该先删除对应的记录，否则后续删除会出错
         try {
-            evaluationDao.deleteEvaluationByUser(id);
-            shoppingCarDao.deleteShoppingCarByUser(id);
-            shoppingRecordDao.deleteShoppingRecordByUser(id);
             userDetailDao.deleteUserDetail(id);
             userDao.deleteUser(id);
             return new Response(1, "删除成功", null);
