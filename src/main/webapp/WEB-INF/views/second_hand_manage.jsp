@@ -167,7 +167,7 @@
     $.ajax({
       async : false, //设置同步
       type : 'POST',
-      url : '${cp}/getAllProducts?userid=${currentUser.id}',
+      url : '${cp}/getAllProducts?userid=${currentUser.user_id}',
       data : nothing,
       dataType : 'json',
       success : function(result) {
@@ -222,7 +222,7 @@
     product.price = document.getElementById("productPrice").value;
     product.counts = document.getElementById("productCount").value;
     product.type = document.getElementById("productType").value;
-    product.user_id = '${currentUser.id}';
+    product.user_id = '${currentUser.user_id}';
     var addResult="";
     $.ajax({
       async : false,
@@ -234,7 +234,7 @@
         addResult = result.result;
       },
       error : function(result) {
-        layer.alert('删除商品错误');
+        layer.alert('添加商品错误');
       }
     });
     if(addResult == "success") {

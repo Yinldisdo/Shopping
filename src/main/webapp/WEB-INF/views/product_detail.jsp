@@ -25,7 +25,6 @@
       function getUserPhoneNumber(id) {
           var phoneNumber = "";
           var user = {};
-          window.alert("正在执行")
           user.id = id;
           $.ajax({
               async : false, //设置同步
@@ -45,25 +44,22 @@
       function getUserByUserid(uuid) {
           var phoneNumber = "";
           var user = {};
-          window.alert("正在执行")
-          user.uuid = uuid;
+          user.user_id = uuid;
           $.ajax({
               async : false, //设置同步
               type : 'POST',
-              url : '${cp}/getUserByUserid',
+              url : '${cp}/getUserByUserId',
               data : user,
               dataType : 'json',
               success : function(result) {
-                  id = result.id;
+                  id = result.result;
               },
               error : function(result) {
-                  layer.alert('查询错误');
+                  layer.alert('查询错误2');
               }
           });
           return id;
       }
-      window.alert('${currentUser.id}')
-      window.alert(getUserPhoneNumber('${currentUser.id}'))
   </script>
     <!--导航栏部分-->
     <jsp:include page="include/header.jsp"/>
@@ -93,34 +89,18 @@
                         <td>${productDetail.price}</td>
                     </tr>
                     <tr>
-                        <th>类别</th>
-                        <td>${productDetail.type}</td>
-                    </tr>
-                    <tr>
                         <th>联系人</th>
-                        <td>${productDetail.user_id}</td>
+                        <td id="sale_nickname"></td>
                     </tr>
                     <tr>
                         <th>联系方式</th>
                         <td id="sale_phone"></td>
                     </tr>
-<%--                    <tr>--%>
-<%--                        <th>购买数量</th>--%>
-<%--                        <td>--%>
-<%--                            <div class="btn-group" role="group">--%>
-<%--                                <button type="button" class="btn btn-default" onclick="subCounts()">-</button>--%>
-<%--                                <button id="productCounts" type="button" class="btn btn-default">1</button>--%>
-<%--                                <button type="button" class="btn btn-default" onclick="addCounts(1)">+</button>--%>
-<%--                            </div>--%>
-<%--                        </td>--%>
-<%--                    </tr>--%>
+
                 </table>
                 <div class="row">
                     <div class="col-sm-1 col-md-1 col-lg-1"></div>
-                    <button class="btn btn-danger btn-lg col-sm-4 col-md-4 col-lg-4" onclick="getUserPhoneNumber('${productDetail.id}')">联系卖家购买</button>
-<%--                    <div class="col-sm-2 col-md-2 col-lg-2"></div>--%>
-<%--                    <button  class="btn btn-danger btn-lg col-sm-4 col-md-4 col-lg-4" onclick="buyConfirm(${productDetail.id})">购买</button>--%>
-
+                    <button class="btn btn-danger btn-lg col-sm-4 col-md-4 col-lg-4" onclick="">联系卖家购买</button>
                 </div>
             </div>
         </div>
@@ -135,13 +115,37 @@
             </div>
         </div>
     </div>
-
+  <script>
+      function getUserByUserid(uuid) {
+          var phoneNumber = "";
+          var user = {};
+          user.user_id = uuid;
+          $.ajax({
+              async : false, //设置同步
+              type : 'POST',
+              url : '${cp}/getUserByUserId',
+              data : user,
+              dataType : 'json',
+              success : function(result) {
+                  id = result.result;
+              },
+              error : function(result) {
+                  layer.alert('查询错误2');
+              }
+          });
+          return id;
+      }
+      sale_user = JSON.parse(getUserByUserid('${productDetail.user_id}'));
+      var resultTd = document.getElementById("sale_phone");
+      // resultTd.innerHTML = sale_user['id'];
+      resultTd.innerHTML = getUserPhoneNumber(sale_user['id']);
+      var nicknameTd = document.getElementById("sale_nickname");
+      nicknameTd.innerHTML = sale_user['nickName'];
+  </script>
     <!-- 尾部 -->
     <jsp:include page="include/foot.jsp"/>
   <script type="text/javascript">
       listEvaluations();
-
-
       function addToShoppingCar(productId) {
           judgeIsLogin();
           layer.confirm('前往购物车？', {icon: 1, title:'添加成功',btn:['前往购物车','继续浏览']},
@@ -159,92 +163,6 @@
               window.location.href = "${cp}/login";
           }
       }
-
-      // function subCounts() {
-      //     var productCounts = document.getElementById("productCounts");
-      //     var counts = parseInt(productCounts.innerHTML);
-      //     if(counts>=2)
-      //         counts--;
-      //     productCounts.innerHTML = counts;
-      // }
-
-      <%--function addCounts() {--%>
-      <%--    var productCounts = document.getElementById("productCounts");--%>
-      <%--    var counts = parseInt(productCounts.innerHTML);--%>
-      <%--    var counts = parseInt(productCounts.innerHTML);--%>
-      <%--    if(counts<${productDetail.counts})--%>
-      <%--        counts++;--%>
-      <%--    productCounts.innerHTML = counts;--%>
-      <%--}--%>
-
-      <%--function buyConfirm(productId) {--%>
-      <%--    judgeIsLogin();--%>
-      <%--    var address = getUserAddress("${currentUser.id}");--%>
-      <%--    var phoneNumber = getUserPhoneNumber("${currentUser.id}");--%>
-      <%--    var productCounts = document.getElementById("productCounts");--%>
-      <%--    var counts = parseInt(productCounts.innerHTML);--%>
-      <%--    var product = getProductById(productId);--%>
-      <%--    var html = '<div class="col-sm-1 col-md-1 col-lg-1"></div>'+--%>
-      <%--            '<div class="col-sm-10 col-md-10 col-lg-10">'+--%>
-      <%--            '<table class="table confirm-margin">'+--%>
-      <%--            '<tr>'+--%>
-      <%--            '<th>商品名称：</th>'+--%>
-      <%--            '<td>'+product.name+'</td>'+--%>
-      <%--            '</tr>'+--%>
-      <%--            '<tr>'+--%>
-      <%--            '<th>商品单价：</th>'+--%>
-      <%--            '<td>'+product.price+'</td>'+--%>
-      <%--            '</tr>'+--%>
-      <%--            '<tr>'+--%>
-      <%--            '<th>购买数量：</th>'+--%>
-      <%--            '<td>'+counts+'</td>'+--%>
-      <%--            '</tr>'+--%>
-      <%--            '<tr>'+--%>
-      <%--            '<th>总金额：</th>'+--%>
-      <%--            '<td>'+counts*product.price+'</td>'+--%>
-      <%--            '</tr>'+--%>
-      <%--            '<tr>'+--%>
-      <%--            '<th>收货地址：</th>'+--%>
-      <%--            '<td>'+address+'</td>'+--%>
-      <%--            '</tr>'+--%>
-      <%--            '<tr>'+--%>
-      <%--            '<th>联系电话：</th>'+--%>
-      <%--            '<td>'+phoneNumber+'</td>'+--%>
-      <%--            '</tr>'+--%>
-      <%--            '</table>'+--%>
-      <%--            '<div class="row">'+--%>
-      <%--            '<div class="col-sm-4 col-md-4 col-lg-4"></div>'+--%>
-      <%--            '<button class="btn btn-danger col-sm-4 col-md-4 col-lg-4" onclick="addToShoppingRecords('+productId+')">确认购买</button>'+--%>
-      <%--            '</div>'+--%>
-      <%--            '</div>';--%>
-      <%--    layer.open({--%>
-      <%--        type:1,--%>
-      <%--        title:'请确认订单信息：',--%>
-      <%--        content:html,--%>
-      <%--        area:['650px','350px'],--%>
-      <%--    });--%>
-      <%--}--%>
-
-      <%--function getProductById(id) {--%>
-      <%--    var productResult = "";--%>
-      <%--    var product = {};--%>
-      <%--    product.id = id;--%>
-      <%--    $.ajax({--%>
-      <%--        async : false, //设置同步--%>
-      <%--        type : 'POST',--%>
-      <%--        url : '${cp}/getProductById',--%>
-      <%--        data : product,--%>
-      <%--        dataType : 'json',--%>
-      <%--        success : function(result) {--%>
-      <%--            productResult = result.result;--%>
-      <%--        },--%>
-      <%--        error : function(result) {--%>
-      <%--            layer.alert('查询错误');--%>
-      <%--        }--%>
-      <%--    });--%>
-      <%--    productResult = JSON.parse(productResult);--%>
-      <%--    return productResult;--%>
-      <%--}--%>
 
       function getUserAddress(id) {
           var address = "";
@@ -269,7 +187,6 @@
       function getUserPhoneNumber(id) {
           var phoneNumber = "";
           var user = {};
-          window.alert("正在执行")
           user.id = id;
           $.ajax({
               async : false, //设置同步
