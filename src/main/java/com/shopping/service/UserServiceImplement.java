@@ -68,4 +68,7 @@ public class UserServiceImplement implements UserService {
     public List<User> getAllUser() {
         return userDao.getAllUser();
     }
+
+    @Override
+    public User getUserByUserId(String user_id) { return userDao.getUserByUserId(user_id); }
 }

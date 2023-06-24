@@ -20,4 +20,6 @@ public interface UserDao {
     public boolean updateUser(User user);
 
     public List<User> getAllUser();
+
+    public User getUserByUserId(String user_id);
 }

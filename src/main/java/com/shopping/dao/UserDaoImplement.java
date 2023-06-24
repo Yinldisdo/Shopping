@@ -68,4 +68,11 @@ public class UserDaoImplement implements UserDao {
         Query query = sessionFactory.getCurrentSession().createQuery(hql);
         return query.list();
     }
+
+    public User getUserByUserId(String user_id) {
+        String hql = "from User where user_id=?";
+        Query query = sessionFactory.getCurrentSession().createQuery(hql);
+        query.setParameter(0, user_id);
+        return (User)query.uniqueResult();
+    }
 }
