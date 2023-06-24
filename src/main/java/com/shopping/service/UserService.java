@@ -21,4 +21,6 @@ public interface UserService {
     boolean updateUser(User user);
 
     List<User> getAllUser();
+
+    User getUserByUserId(String user_id);
 }

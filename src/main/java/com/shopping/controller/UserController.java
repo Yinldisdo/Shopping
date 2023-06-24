@@ -197,6 +197,16 @@ public class UserController {
         return resultMap;
     }
 
+    @RequestMapping(value = "/getUserByUserId", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> getUserByUserId(String user_id) {
+        User user = userService.getUserByUserId(user_id);
+        String result = JSON.toJSONString(user);
+        Map<String,Object> resultMap = new HashMap<String,Object>();
+        resultMap.put("result",result);
+        return resultMap;
+    }
+
     @RequestMapping(value = "/getUserDetailById", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> getUserDetailById(int id) {
