@@ -27,20 +27,17 @@
       <script src="${cp}/js/respond.min.js"></script>
 </head>
 <body>
-<!--Header-->
 <jsp:include page="include/header.jsp"/>
 
-<!-- 中间内容 -->
 <div class="container-fluid">
   <div class="row">
-    <!-- Controller Bar -->
+
     <div class="col-sm-3 col-md-2 sidebar sidebar-1">
       <ul class="nav nav-sidebar">
         <li class="list-group-item-diy"><a href="#section1">我的闲置</a></li>
         <li class="list-group-item-diy"><a href="#section2">添加商品</a></li>
       </ul>
     </div>
-    <!-- 控制内容 -->
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
       <div class="col-md-12">
@@ -56,7 +53,6 @@
         <h1><a name="section2">添加商品</a></h1>
         <hr/>
         <div class="col-sm-offset-2 col-md-offest-2">
-          <!-- 表单输入 -->
           <div  class="form-horizontal">
             <div class="form-group">
               <label for="productName" class="col-sm-2 col-md-2 control-label">商品名称</label>
@@ -108,7 +104,6 @@
                 <input name="productImgUpload" type="file"  id="productImgUpload"/>
                 <p class="help-block">上传的图片大小应为280*160大小</p>
               </div>
-              <%--<button class="btn btn-primary col-sm-2 col-md-2" onclick="fileUpload()">上传图片</button>--%>
             </div>
             <div class="form-group">
               <div class="col-sm-offset-2 col-sm-6" id="imgPreSee">
@@ -128,7 +123,7 @@
 </div>
 
 
-<!-- 尾部 -->
+
 <jsp:include page="include/foot.jsp"/>
 <script type="text/javascript">
 
@@ -254,7 +249,7 @@
       type:'POST',
       dataType : 'text',
       success: function (result){
-        result = result.replace(/<pre.*?>/g, '');  //ajaxFileUpload会对服务器响应回来的text内容加上<pre style="....">text</pre>前后缀
+        result = result.replace(/<pre.*?>/g, '');
         result = result.replace(/<PRE.*?>/g, '');
         result = result.replace("<PRE>", '');
         result = result.replace("</PRE>", '');
@@ -265,9 +260,6 @@
         if(results == "success") {
           layer.msg("图片上传成功", {icon: 1});
           window.location.href = "${cp}/second_hand_manage";
-          //var imgPreSee = document.getElementById("imgPreSee");
-          //var imgSrc = '${cp}/img/'+name+'.jpg';
-          //imgPreSee.innerHTML +='<img src="'+imgSrc+')" class="col-sm-12 col-md-12 col-lg-12"/>';
         }
         else {
           layer.msg("图片上传失败", {icon: 0});

@@ -17,15 +17,13 @@
     <script src="${cp}/js/respond.min.js"></script>
 </head>
 <body>
-    <!-- FOOTER -->
     <hr/>
     <div class="foot-style">
-        本项目采用了Spring+SpringMVC开发框架，前端使用了Bootstrap开发框架
+        项目组成员:徐宝川、何韦森、薛文涛
         <br/>
-        数据库使用了MySQL
+        使用框架：SpringMVC+Hibernate+MySQL
         <br/>
     </div>
-    <!-- END -->
 
 </body>
 </html>

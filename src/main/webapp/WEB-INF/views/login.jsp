@@ -33,7 +33,7 @@
                 <div class="form-group">
                     <label for="inputEmail" class="col-sm-2 col-md-2 control-label">用户名</label>
                     <div class="col-sm-6 col-md-6">
-                        <input type="text" class="form-control" id="inputEmail" placeholder="xxxxxx@xx.com"/>
+                        <input type="text" class="form-control" id="inputEmail" placeholder="xbchuan@tust.edu.cn"/>
                     </div>
                 </div>
                 <div class="form-group">

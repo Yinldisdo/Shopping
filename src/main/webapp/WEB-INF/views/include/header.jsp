@@ -54,7 +54,7 @@
 
             <div class="navbar-form navbar-right">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="数据库" id="searchKeyWord"/>
+                    <input type="text" class="form-control" placeholder="机械键盘" id="searchKeyWord"/>
                 </div>
                 <button class="btn btn-default" onclick="searchProduct();">查找商品</button>
             </div>

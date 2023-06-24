@@ -8,7 +8,6 @@ INSERT INTO `products`(`id`, `name`, `description`, `key_word`, `price`, `counts
 INSERT INTO `products`(`id`, `name`, `description`, `key_word`, `price`, `counts`, `type`,`user_id`) VALUES (7, '苹果笔记本', '办公必备', '苹果;笔记本', 19999, 100000, 2,'313aa95e193c4be6b11fceb92f0ea4aa');
 INSERT INTO `products`(`id`, `name`, `description`, `key_word`, `price`, `counts`, `type`,`user_id`) VALUES (8, '化妆品', '比ps好用，你信不', '化妆品', 1999, 10000, 6,'313aa95e193c4be6b11fceb92f0ea4aa');
 INSERT INTO `products`(`id`, `name`, `description`, `key_word`, `price`, `counts`, `type`,`user_id`) VALUES (9, '足球', '圆圆的，白白的，会滚，一斤三块？要不，来两斤？', '足球;运动', 199, 100000, 7,'413aa95e193c4be6b11fceb92f0ea4aa');
-INSERT INTO `products`(`id`, `name`, `description`, `key_word`, `price`, `counts`, `type`,`user_id`) VALUES (10, '足球2', '圆圆的，白白的，会滚，一斤三块？要不，来两斤？', '足球22;运动', 199, 100000, 7,'413aa95e193c4be6b11fceb92f0ea4aa');
 
 INSERT INTO `user_main`(`id`, `name`, `email`, `nick_name`, `user_id`) VALUES (1, 'user1', 'admin@abc.com', 'admin', '313aa95e193c4be6b11fceb92f0ea4aa');
 INSERT INTO `user_main`(`id`, `name`, `email`, `nick_name`, `user_id`) VALUES (3, 'user2', 'test@test.com', '123456', '413aa95e193c4be6b11fceb92f0ea4aa');

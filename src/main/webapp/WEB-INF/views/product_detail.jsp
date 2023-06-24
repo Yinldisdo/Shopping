@@ -27,7 +27,7 @@
           var user = {};
           user.id = id;
           $.ajax({
-              async : false, //设置同步
+              async : false,
               type : 'POST',
               url : '${cp}/getUserAddressAndPhoneNumber',
               data : user,
@@ -42,7 +42,6 @@
           return phoneNumber;
       }
       function getUserByUserid(uuid) {
-          var phoneNumber = "";
           var user = {};
           user.user_id = uuid;
           $.ajax({
@@ -61,10 +60,10 @@
           return id;
       }
   </script>
-    <!--导航栏部分-->
+
     <jsp:include page="include/header.jsp"/>
 
-    <!-- 中间内容 -->
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-1 col-md-1"></div>
@@ -137,224 +136,11 @@
       }
       sale_user = JSON.parse(getUserByUserid('${productDetail.user_id}'));
       var resultTd = document.getElementById("sale_phone");
-      // resultTd.innerHTML = sale_user['id'];
       resultTd.innerHTML = getUserPhoneNumber(sale_user['id']);
       var nicknameTd = document.getElementById("sale_nickname");
       nicknameTd.innerHTML = sale_user['nickName'];
   </script>
     <!-- 尾部 -->
     <jsp:include page="include/foot.jsp"/>
-  <script type="text/javascript">
-      listEvaluations();
-      function addToShoppingCar(productId) {
-          judgeIsLogin();
-          layer.confirm('前往购物车？', {icon: 1, title:'添加成功',btn:['前往购物车','继续浏览']},
-              function(){
-                  window.location.href = "${cp}/shopping_car";
-              },
-              function(index){
-                  layer.close(index);}
-          );
-
-      }
-
-      function judgeIsLogin() {
-          if("${currentUser.id}" == null || "${currentUser.id}" === undefined || "${currentUser.id}" ===""){
-              window.location.href = "${cp}/login";
-          }
-      }
-
-      function getUserAddress(id) {
-          var address = "";
-          var user = {};
-          user.id = id;
-          $.ajax({
-              async : false, //设置同步
-              type : 'POST',
-              url : '${cp}/getUserAddressAndPhoneNumber',
-              data : user,
-              dataType : 'json',
-              success : function(result) {
-                  address = result.address;
-              },
-              error : function(result) {
-                  layer.alert('查询错误');
-              }
-          });
-          return address;
-      }
-
-      function getUserPhoneNumber(id) {
-          var phoneNumber = "";
-          var user = {};
-          user.id = id;
-          $.ajax({
-              async : false, //设置同步
-              type : 'POST',
-              url : '${cp}/getUserAddressAndPhoneNumber',
-              data : user,
-              dataType : 'json',
-              success : function(result) {
-                  phoneNumber = result.phoneNumber;
-              },
-              error : function(result) {
-                  layer.alert('查询错误');
-              }
-          });
-          return phoneNumber;
-      }
-
-      function addToShoppingRecords(productId) {
-          var productCounts = document.getElementById("productCounts");
-          var counts = parseInt(productCounts.innerHTML);
-          var shoppingRecord = {};
-          shoppingRecord.userId = "${currentUser.id}";
-          shoppingRecord.productId = productId;
-          shoppingRecord.counts = counts;
-          var buyResult = "";
-          $.ajax({
-              async : false,
-              type : 'POST',
-              url : '${cp}/addShoppingRecord',
-              data : shoppingRecord,
-              dataType : 'json',
-              success : function(result) {
-                  buyResult = result.result;
-              },
-              error : function(result) {
-                  layer.alert('购买错误');
-              }
-          });
-          if(buyResult === "success") {
-              layer.confirm('前往订单状态？', {icon: 1, title:'购买成功',btn:['前往订单','继续购买']},
-                      function(){
-                          window.location.href = "${cp}/shopping_record";
-                      },
-                      function(index){
-                          layer.close(index);}
-              );
-          }
-          else if(buyResult === "unEnough"){
-              layer.alert("库存不足，购买失败")
-          }
-      }
-
-      function listEvaluations() {
-          var evaluations = getEvaluations();
-          var evaluationTable = document.getElementById("evaluation");
-          var html = "";
-          for(var i=0;i<evaluations.length;i++){
-              var user = getUserById(evaluations[i].userId);
-              html+='<tr>'+
-                      '<th>'+user.nickName+'</th>'+
-                      '<td>'+evaluations[i].content+'</td>'+
-                      '</tr>';
-          }
-          evaluationTable.innerHTML += html;
-
-          if("${currentUser}"!=="" && getUserProductRecord() === "true"){
-              var inputArea = document.getElementById("inputArea");
-              html= '<div class="col-sm-12 col-md-12 col-lg-12">'+
-                      '<textarea class="form-control" rows="4" id="evaluationText"></textarea>'+
-                      '</div>'+
-                      '<div class="col-sm-12 col-md-12 col-lg-12">'+
-                      '<div class="col-sm-4 col-md-4 col-lg-4"></div>'+
-                      '<button class="btn btn-primary btn-lg evaluationButton col-sm-4 col-md-4 col-lg-4" onclick="addToEvaluation()">评价</button>'+
-                      '</div>';
-              inputArea.innerHTML +=html;
-          }
-
-      }
-
-      function getUserProductRecord() {
-          var results = "";
-          var product = {};
-          product.userId = ${currentUser.user_id};
-          product.productId = ${productDetail.id};
-          $.ajax({
-              async : false, //设置同步
-              type : 'POST',
-              url : '${cp}/getUserProductRecord',
-              data : product,
-              dataType : 'json',
-              success : function(result) {
-                  results = result.result;
-              },
-              error : function(result) {
-                  layer.alert('查询错误');
-              }
-          });
-          return results;
-      }
-
-      function getEvaluations() {
-          var evaluations = "";
-          var product = {};
-          product.productId = "${productDetail.id}";
-          $.ajax({
-              async : false, //设置同步
-              type : 'POST',
-              url : '${cp}/getShoppingEvaluations',
-              data : product,
-              dataType : 'json',
-              success : function(result) {
-                  evaluations = result.result;
-              },
-              error : function(result) {
-                  layer.alert('查询错误');
-              }
-          });
-          evaluations = eval("("+evaluations+")");
-          return evaluations;
-      }
-
-      function getUserById(id) {
-          var userResult = "";
-          var user = {};
-          user.id = id;
-          $.ajax({
-              async : false, //设置同步
-              type : 'POST',
-              url : '${cp}/getUserById',
-              data : user,
-              dataType : 'json',
-              success : function(result) {
-                  userResult = result.result;
-              },
-              error : function(result) {
-                  layer.alert('查询错误');
-              }
-          });
-          userResult = JSON.parse(userResult);
-          return userResult;
-      }
-
-      function addToEvaluation() {
-          var inputText = document.getElementById("evaluationText").value;
-          var evaluation = {};
-          evaluation.userId = "${currentUser.id}";
-          evaluation.productId = "${productDetail.id}";
-          evaluation.content = inputText;
-          var addResult = "";
-          $.ajax({
-              async : false,
-              type : 'POST',
-              url : '${cp}/addShoppingEvaluation',
-              data : evaluation,
-              dataType : 'json',
-              success : function(result) {
-                  addResult = result.result;
-              },
-              error : function(result) {
-                  layer.alert('查询用户错误');
-              }
-          });
-          if(addResult = "success"){
-              layer.msg("评价成功",{icon:1});
-              window.location.href = "${cp}/product_detail";
-          }
-      }
-
-  </script>
   </body>
 </html>

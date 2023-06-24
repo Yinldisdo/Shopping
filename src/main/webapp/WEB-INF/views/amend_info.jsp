@@ -32,19 +32,19 @@
             <div class="form-group">
                 <label for="inputEmail" class="col-sm-2 col-md-2 control-label">用户名</label>
                 <div class="col-sm-6 col-md-6">
-                    <input type="text" class="form-control" id="inputUserName" placeholder="14121047" readonly>
+                    <input type="text" class="form-control" id="inputUserName" placeholder="21103308" readonly>
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputEmail" class="col-sm-2 col-md-2 control-label">邮箱</label>
                 <div class="col-sm-6 col-md-6">
-                    <input type="email" class="form-control" id="inputEmail" placeholder="xxxxxx@xx.com" readonly>
+                    <input type="email" class="form-control" id="inputEmail" placeholder="xbchuan@tust.edu.cn" readonly>
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputNickname" class="col-sm-2 col-md-2 control-label">昵称</label>
                 <div class="col-sm-6 col-md-6">
-                    <input type="text" class="form-control" id="inputNickname" placeholder="高帅富" />
+                    <input type="text" class="form-control" id="inputNickname" placeholder="超级无敌暴龙神大王" />
                 </div>
             </div>
             <div class="form-group">
@@ -56,7 +56,7 @@
             <div class="form-group">
                 <label for="inputPhoneNumber" class="col-sm-2 col-md-2 control-label">手机号码</label>
                 <div class="col-sm-6 col-md-6">
-                    <input type="text" class="form-control" id="inputPhoneNumber" placeholder="131xxxxxxxx" />
+                    <input type="text" class="form-control" id="inputPhoneNumber" placeholder="12312344321" />
                 </div>
             </div>
             <div class="form-group">
@@ -73,19 +73,19 @@
             <div class="form-group">
                 <label for="birthday" class="col-sm-2 col-md-2 control-label">出生日期</label>
                 <div class="col-sm-6 col-md-6">
-                    <input type="text" class="form-control" id="birthday" placeholder="18" />
+                    <input type="text" class="form-control" id="birthday" placeholder="2003-01-02" />
                 </div>
             </div>
             <div class="form-group">
                 <label for="postcodes" class="col-sm-2 col-md-2 control-label">邮政编码</label>
                 <div class="col-sm-6 col-md-6">
-                    <input type="text" class="form-control" id="postcodes" placeholder="200444" />
+                    <input type="text" class="form-control" id="postcodes" placeholder="300457" />
                 </div>
             </div>
             <div class="form-group">
                 <label for="address" class="col-sm-2 col-md-2 control-label">地址</label>
                 <div class="col-sm-6 col-md-6">
-                    <input type="text" class="form-control" id="address" placeholder="131xxxxxxxx" />
+                    <input type="text" class="form-control" id="address" placeholder="天津市滨海新区经济技术开发区第十三大街29号天津科技大学" />
                 </div>
             </div>
             <div class="form-group">

@@ -160,11 +160,11 @@
             }
             else if(registerResult == 'nameExist'){
                 layer.close(loading);
-                layer.msg('这个用户名已经被占用啦！',{icon:2});
+                layer.msg('该用户名已经被占用',{icon:2});
             }
             else if(registerResult == 'emailExist'){
                 layer.close(loading);
-                layer.msg('这个用户名已经注册啦！',{icon:2});
+                layer.msg('该用户名已经注册',{icon:2});
             }
             else if(registerResult == 'fail'){
                 layer.close(loading);
