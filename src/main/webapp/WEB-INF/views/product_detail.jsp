@@ -21,6 +21,50 @@
 
   </head>
   <body>
+  <script>
+      function getUserPhoneNumber(id) {
+          var phoneNumber = "";
+          var user = {};
+          window.alert("正在执行")
+          user.id = id;
+          $.ajax({
+              async : false, //设置同步
+              type : 'POST',
+              url : '${cp}/getUserAddressAndPhoneNumber',
+              data : user,
+              dataType : 'json',
+              success : function(result) {
+                  phoneNumber = result.phoneNumber;
+              },
+              error : function(result) {
+                  layer.alert('查询错误');
+              }
+          });
+          return phoneNumber;
+      }
+      function getUserByUserid(uuid) {
+          var phoneNumber = "";
+          var user = {};
+          window.alert("正在执行")
+          user.uuid = uuid;
+          $.ajax({
+              async : false, //设置同步
+              type : 'POST',
+              url : '${cp}/getUserByUserid',
+              data : user,
+              dataType : 'json',
+              success : function(result) {
+                  id = result.id;
+              },
+              error : function(result) {
+                  layer.alert('查询错误');
+              }
+          });
+          return id;
+      }
+      window.alert('${currentUser.id}')
+      window.alert(getUserPhoneNumber('${currentUser.id}'))
+  </script>
     <!--导航栏部分-->
     <jsp:include page="include/header.jsp"/>
 
@@ -58,7 +102,7 @@
                     </tr>
                     <tr>
                         <th>联系方式</th>
-                        <td>${productDetail.counts}</td>
+                        <td id="sale_phone"></td>
                     </tr>
 <%--                    <tr>--%>
 <%--                        <th>购买数量</th>--%>
@@ -73,7 +117,7 @@
                 </table>
                 <div class="row">
                     <div class="col-sm-1 col-md-1 col-lg-1"></div>
-                    <button class="btn btn-danger btn-lg col-sm-4 col-md-4 col-lg-4" onclick="">联系卖家购买</button>
+                    <button class="btn btn-danger btn-lg col-sm-4 col-md-4 col-lg-4" onclick="getUserPhoneNumber('${productDetail.id}')">联系卖家购买</button>
 <%--                    <div class="col-sm-2 col-md-2 col-lg-2"></div>--%>
 <%--                    <button  class="btn btn-danger btn-lg col-sm-4 col-md-4 col-lg-4" onclick="buyConfirm(${productDetail.id})">购买</button>--%>
 
@@ -96,6 +140,7 @@
     <jsp:include page="include/foot.jsp"/>
   <script type="text/javascript">
       listEvaluations();
+
 
       function addToShoppingCar(productId) {
           judgeIsLogin();
@@ -224,6 +269,7 @@
       function getUserPhoneNumber(id) {
           var phoneNumber = "";
           var user = {};
+          window.alert("正在执行")
           user.id = id;
           $.ajax({
               async : false, //设置同步
@@ -306,7 +352,7 @@
       function getUserProductRecord() {
           var results = "";
           var product = {};
-          product.userId = ${currentUser.id};
+          product.userId = ${currentUser.user_id};
           product.productId = ${productDetail.id};
           $.ajax({
               async : false, //设置同步
