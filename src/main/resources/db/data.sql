@@ -1,13 +1,13 @@
 
-INSERT INTO `products`(`id`, `name`, `description`, `key_word`, `price`, `counts`, `type`,`user_id`) VALUES (1, '酒吞童子', 'SSR！全新的SSR！', '阴阳师;游戏;网易', 199, 200000, 4,'313aa95e193c4be6b11fceb92f0ea4aa');
-INSERT INTO `products`(`id`, `name`, `description`, `key_word`, `price`, `counts`, `type`,`user_id`) VALUES (2, '古剑奇谭二', '国产单机游戏，阿阮我的！', '单机游戏;国产;古剑', 69, 100000, 4,'313aa95e193c4be6b11fceb92f0ea4aa');
-INSERT INTO `products`(`id`, `name`, `description`, `key_word`, `price`, `counts`, `type`,`user_id`) VALUES (3, 'BJD娃娃', '每一个娃娃都是天使，娃妈娃爹就是天使长！', 'BJD;娃娃', 19999, 300000, 4,'313aa95e193c4be6b11fceb92f0ea4aa');
-INSERT INTO `products`(`id`, `name`, `description`, `key_word`, `price`, `counts`, `type`,`user_id`) VALUES (4, '疯狂Android讲义', '这是用来看的嘛？不，这是用来砸人的！装备后攻击+100，防御-100，体力-100，幸运-10，知识+100，固有技能：Android Studio！', '李刚;疯狂系列;Android;安卓', 129, 300000, 3,'313aa95e193c4be6b11fceb92f0ea4aa');
-INSERT INTO `products`(`id`, `name`, `description`, `key_word`, `price`, `counts`, `type`,`user_id`) VALUES (5, '小米MIX', '全面屏！正面都是屏幕！', '小米;全面屏;手机', 3999, 20000, 2,'313aa95e193c4be6b11fceb92f0ea4aa');
-INSERT INTO `products`(`id`, `name`, `description`, `key_word`, `price`, `counts`, `type`,`user_id`) VALUES (6, '雪中飞羽绒服', '少年，穿上这件衣服，下雪你就可以飞了！', '羽绒服;保暖', 799, 10000, 1,'313aa95e193c4be6b11fceb92f0ea4aa');
-INSERT INTO `products`(`id`, `name`, `description`, `key_word`, `price`, `counts`, `type`,`user_id`) VALUES (7, '苹果笔记本', '办公必备', '苹果;笔记本', 19999, 100000, 2,'313aa95e193c4be6b11fceb92f0ea4aa');
-INSERT INTO `products`(`id`, `name`, `description`, `key_word`, `price`, `counts`, `type`,`user_id`) VALUES (8, '化妆品', '比ps好用，你信不', '化妆品', 1999, 10000, 6,'313aa95e193c4be6b11fceb92f0ea4aa');
-INSERT INTO `products`(`id`, `name`, `description`, `key_word`, `price`, `counts`, `type`,`user_id`) VALUES (9, '足球', '圆圆的，白白的，会滚，一斤三块？要不，来两斤？', '足球;运动', 199, 100000, 7,'413aa95e193c4be6b11fceb92f0ea4aa');
+INSERT INTO `products`(`id`, `name`, `description`, `key_word`, `price`, `counts`, `type`,`user_id`) VALUES (1, '机械键盘', '响应迅速准确，专业特游戏芯片', '机械键盘;电竞;光效', 199, 100, 2,'313aa95e193c4be6b11fceb92f0ea4aa');
+INSERT INTO `products`(`id`, `name`, `description`, `key_word`, `price`, `counts`, `type`,`user_id`) VALUES (2, '床上桌', '可折叠简约学习小桌子', '学习；折叠桌', 39, 10, 5,'313aa95e193c4be6b11fceb92f0ea4aa');
+INSERT INTO `products`(`id`, `name`, `description`, `key_word`, `price`, `counts`, `type`,`user_id`) VALUES (3, '羽毛球球拍', '全碳素纤维超轻专业羽毛球球拍！', '运动;球拍', 100, 30, 7,'313aa95e193c4be6b11fceb92f0ea4aa');
+INSERT INTO `products`(`id`, `name`, `description`, `key_word`, `price`, `counts`, `type`,`user_id`) VALUES (4, '收纳篮', '带有挂钩的宿舍神器：上铺收纳架子', '收纳;宿舍好物;篮子', 5, 1, 5,'313aa95e193c4be6b11fceb92f0ea4aa');
+INSERT INTO `products`(`id`, `name`, `description`, `key_word`, `price`, `counts`, `type`,`user_id`) VALUES (5, '蓝牙耳机', '无线降噪耳机，主动降噪空间音频', '降噪;耳机', 399, 250, 2,'313aa95e193c4be6b11fceb92f0ea4aa');
+INSERT INTO `products`(`id`, `name`, `description`, `key_word`, `price`, `counts`, `type`,`user_id`) VALUES (6, '多功能计算器', '无存储多功能计算器，满足计算需求，可带入考场', '计算器，办公；学习', 20, 5, 3,'313aa95e193c4be6b11fceb92f0ea4aa');
+INSERT INTO `products`(`id`, `name`, `description`, `key_word`, `price`, `counts`, `type`,`user_id`) VALUES (7, '衣服挂件', '可爱卡通挂件，12个装', '挂件；衣物；装饰;', 12, 5, 1,'313aa95e193c4be6b11fceb92f0ea4aa');
+INSERT INTO `products`(`id`, `name`, `description`, `key_word`, `price`, `counts`, `type`,`user_id`) VALUES (8, '化妆品收纳盒', '整洁有序，节省空间', '化妆品；收纳', 15, 5, 6,'313aa95e193c4be6b11fceb92f0ea4aa');
+INSERT INTO `products`(`id`, `name`, `description`, `key_word`, `price`, `counts`, `type`,`user_id`) VALUES (9, '钥匙扣', '包包挂件卡通可爱公仔钥匙扣', '钥匙扣;游戏', 32, 20, 4,'413aa95e193c4be6b11fceb92f0ea4aa');
 
 INSERT INTO `user_main`(`id`, `name`, `email`, `nick_name`, `user_id`) VALUES (1, 'user1', 'admin@abc.com', 'admin', '313aa95e193c4be6b11fceb92f0ea4aa');
 INSERT INTO `user_main`(`id`, `name`, `email`, `nick_name`, `user_id`) VALUES (3, 'user2', 'test@test.com', '123456', '413aa95e193c4be6b11fceb92f0ea4aa');
