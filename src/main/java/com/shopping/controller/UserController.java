@@ -9,7 +9,6 @@ import com.shopping.service.UserService;
 import com.shopping.utils.Response;
 import org.springframework.stereotype.Controller;
 
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -54,7 +53,7 @@ public class UserController {
 
     @RequestMapping(value = "/control")
     public String control() {
-        return "control";
+        return "control.jspbackup";
     }
 
     @RequestMapping(value = "/second_hand_manage")

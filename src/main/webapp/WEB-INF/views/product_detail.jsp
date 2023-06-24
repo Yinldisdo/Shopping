@@ -16,6 +16,8 @@
       <script src="${cp}/js/jquery.min.js" type="text/javascript"></script>
       <script src="${cp}/js/bootstrap.min.js" type="text/javascript"></script>
       <script src="${cp}/js/layer.js" type="text/javascript"></script>
+      <script src="${cp}/js/html5shiv.min.js"></script>
+      <script src="${cp}/js/js/respond.min.js"></script>
 
   </head>
   <body>
@@ -52,28 +54,28 @@
                     </tr>
                     <tr>
                         <th>联系人</th>
-                        <td>${productDetail.description}</td>
+                        <td>${productDetail.user_id}</td>
                     </tr>
                     <tr>
                         <th>联系方式</th>
                         <td>${productDetail.counts}</td>
                     </tr>
-                    <tr>
-                        <th>购买数量</th>
-                        <td>
-                            <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-default" onclick="subCounts()">-</button>
-                                <button id="productCounts" type="button" class="btn btn-default">1</button>
-                                <button type="button" class="btn btn-default" onclick="addCounts(1)">+</button>
-                            </div>
-                        </td>
-                    </tr>
+<%--                    <tr>--%>
+<%--                        <th>购买数量</th>--%>
+<%--                        <td>--%>
+<%--                            <div class="btn-group" role="group">--%>
+<%--                                <button type="button" class="btn btn-default" onclick="subCounts()">-</button>--%>
+<%--                                <button id="productCounts" type="button" class="btn btn-default">1</button>--%>
+<%--                                <button type="button" class="btn btn-default" onclick="addCounts(1)">+</button>--%>
+<%--                            </div>--%>
+<%--                        </td>--%>
+<%--                    </tr>--%>
                 </table>
                 <div class="row">
                     <div class="col-sm-1 col-md-1 col-lg-1"></div>
-                    <button class="btn btn-danger btn-lg col-sm-4 col-md-4 col-lg-4" onclick="addToShoppingCar(${productDetail.id})">添加购物车</button>
-                    <div class="col-sm-2 col-md-2 col-lg-2"></div>
-                    <button  class="btn btn-danger btn-lg col-sm-4 col-md-4 col-lg-4" onclick="buyConfirm(${productDetail.id})">购买</button>
+                    <button class="btn btn-danger btn-lg col-sm-4 col-md-4 col-lg-4" onclick="">联系卖家购买</button>
+<%--                    <div class="col-sm-2 col-md-2 col-lg-2"></div>--%>
+<%--                    <button  class="btn btn-danger btn-lg col-sm-4 col-md-4 col-lg-4" onclick="buyConfirm(${productDetail.id})">购买</button>--%>
 
                 </div>
             </div>
@@ -82,7 +84,7 @@
             <div class="col-sm-1 col-md-1 col-lg-1"></div>
             <div class="col-sm-10 col-md-10 col-lg-10">
                 <hr class="division"/>
-                <h3>商品详情</h3>
+                <h3>闲置详情</h3>
                 ${productDetail.description}
                 <hr/>
                 <div id="inputArea"></div>
@@ -97,35 +99,14 @@
 
       function addToShoppingCar(productId) {
           judgeIsLogin();
-          var productCounts = document.getElementById("productCounts");
-          var counts = parseInt(productCounts.innerHTML);
-          var shoppingCar = {};
-          shoppingCar.userId = "${currentUser.id}";
-          shoppingCar.productId = productId;
-          shoppingCar.counts = counts;
-          var addResult = "";
-          $.ajax({
-              async : false,
-              type : 'POST',
-              url : '${cp}/addShoppingCar',
-              data : shoppingCar,
-              dataType : 'json',
-              success : function(result) {
-                  addResult = result.result;
+          layer.confirm('前往购物车？', {icon: 1, title:'添加成功',btn:['前往购物车','继续浏览']},
+              function(){
+                  window.location.href = "${cp}/shopping_car";
               },
-              error : function(result) {
-                  layer.alert('查询用户错误');
-              }
-          });
-          if(addResult == "success") {
-              layer.confirm('前往购物车？', {icon: 1, title:'添加成功',btn:['前往购物车','继续浏览']},
-                      function(){
-                          window.location.href = "${cp}/shopping_car";
-                      },
-                      function(index){
-                        layer.close(index);}
-              );
-          }
+              function(index){
+                  layer.close(index);}
+          );
+
       }
 
       function judgeIsLogin() {
@@ -134,90 +115,91 @@
           }
       }
 
-      function subCounts() {
-          var productCounts = document.getElementById("productCounts");
-          var counts = parseInt(productCounts.innerHTML);
-          if(counts>=2)
-              counts--;
-          productCounts.innerHTML = counts;
-      }
+      // function subCounts() {
+      //     var productCounts = document.getElementById("productCounts");
+      //     var counts = parseInt(productCounts.innerHTML);
+      //     if(counts>=2)
+      //         counts--;
+      //     productCounts.innerHTML = counts;
+      // }
 
-      function addCounts() {
-          var productCounts = document.getElementById("productCounts");
-          var counts = parseInt(productCounts.innerHTML);
-          if(counts<${productDetail.counts})
-              counts++;
-          productCounts.innerHTML = counts;
-      }
+      <%--function addCounts() {--%>
+      <%--    var productCounts = document.getElementById("productCounts");--%>
+      <%--    var counts = parseInt(productCounts.innerHTML);--%>
+      <%--    var counts = parseInt(productCounts.innerHTML);--%>
+      <%--    if(counts<${productDetail.counts})--%>
+      <%--        counts++;--%>
+      <%--    productCounts.innerHTML = counts;--%>
+      <%--}--%>
 
-      function buyConfirm(productId) {
-          judgeIsLogin();
-          var address = getUserAddress("${currentUser.id}");
-          var phoneNumber = getUserPhoneNumber("${currentUser.id}");
-          var productCounts = document.getElementById("productCounts");
-          var counts = parseInt(productCounts.innerHTML);
-          var product = getProductById(productId);
-          var html = '<div class="col-sm-1 col-md-1 col-lg-1"></div>'+
-                  '<div class="col-sm-10 col-md-10 col-lg-10">'+
-                  '<table class="table confirm-margin">'+
-                  '<tr>'+
-                  '<th>商品名称：</th>'+
-                  '<td>'+product.name+'</td>'+
-                  '</tr>'+
-                  '<tr>'+
-                  '<th>商品单价：</th>'+
-                  '<td>'+product.price+'</td>'+
-                  '</tr>'+
-                  '<tr>'+
-                  '<th>购买数量：</th>'+
-                  '<td>'+counts+'</td>'+
-                  '</tr>'+
-                  '<tr>'+
-                  '<th>总金额：</th>'+
-                  '<td>'+counts*product.price+'</td>'+
-                  '</tr>'+
-                  '<tr>'+
-                  '<th>收货地址：</th>'+
-                  '<td>'+address+'</td>'+
-                  '</tr>'+
-                  '<tr>'+
-                  '<th>联系电话：</th>'+
-                  '<td>'+phoneNumber+'</td>'+
-                  '</tr>'+
-                  '</table>'+
-                  '<div class="row">'+
-                  '<div class="col-sm-4 col-md-4 col-lg-4"></div>'+
-                  '<button class="btn btn-danger col-sm-4 col-md-4 col-lg-4" onclick="addToShoppingRecords('+productId+')">确认购买</button>'+
-                  '</div>'+
-                  '</div>';
-          layer.open({
-              type:1,
-              title:'请确认订单信息：',
-              content:html,
-              area:['650px','350px'],
-          });
-      }
+      <%--function buyConfirm(productId) {--%>
+      <%--    judgeIsLogin();--%>
+      <%--    var address = getUserAddress("${currentUser.id}");--%>
+      <%--    var phoneNumber = getUserPhoneNumber("${currentUser.id}");--%>
+      <%--    var productCounts = document.getElementById("productCounts");--%>
+      <%--    var counts = parseInt(productCounts.innerHTML);--%>
+      <%--    var product = getProductById(productId);--%>
+      <%--    var html = '<div class="col-sm-1 col-md-1 col-lg-1"></div>'+--%>
+      <%--            '<div class="col-sm-10 col-md-10 col-lg-10">'+--%>
+      <%--            '<table class="table confirm-margin">'+--%>
+      <%--            '<tr>'+--%>
+      <%--            '<th>商品名称：</th>'+--%>
+      <%--            '<td>'+product.name+'</td>'+--%>
+      <%--            '</tr>'+--%>
+      <%--            '<tr>'+--%>
+      <%--            '<th>商品单价：</th>'+--%>
+      <%--            '<td>'+product.price+'</td>'+--%>
+      <%--            '</tr>'+--%>
+      <%--            '<tr>'+--%>
+      <%--            '<th>购买数量：</th>'+--%>
+      <%--            '<td>'+counts+'</td>'+--%>
+      <%--            '</tr>'+--%>
+      <%--            '<tr>'+--%>
+      <%--            '<th>总金额：</th>'+--%>
+      <%--            '<td>'+counts*product.price+'</td>'+--%>
+      <%--            '</tr>'+--%>
+      <%--            '<tr>'+--%>
+      <%--            '<th>收货地址：</th>'+--%>
+      <%--            '<td>'+address+'</td>'+--%>
+      <%--            '</tr>'+--%>
+      <%--            '<tr>'+--%>
+      <%--            '<th>联系电话：</th>'+--%>
+      <%--            '<td>'+phoneNumber+'</td>'+--%>
+      <%--            '</tr>'+--%>
+      <%--            '</table>'+--%>
+      <%--            '<div class="row">'+--%>
+      <%--            '<div class="col-sm-4 col-md-4 col-lg-4"></div>'+--%>
+      <%--            '<button class="btn btn-danger col-sm-4 col-md-4 col-lg-4" onclick="addToShoppingRecords('+productId+')">确认购买</button>'+--%>
+      <%--            '</div>'+--%>
+      <%--            '</div>';--%>
+      <%--    layer.open({--%>
+      <%--        type:1,--%>
+      <%--        title:'请确认订单信息：',--%>
+      <%--        content:html,--%>
+      <%--        area:['650px','350px'],--%>
+      <%--    });--%>
+      <%--}--%>
 
-      function getProductById(id) {
-          var productResult = "";
-          var product = {};
-          product.id = id;
-          $.ajax({
-              async : false, //设置同步
-              type : 'POST',
-              url : '${cp}/getProductById',
-              data : product,
-              dataType : 'json',
-              success : function(result) {
-                  productResult = result.result;
-              },
-              error : function(result) {
-                  layer.alert('查询错误');
-              }
-          });
-          productResult = JSON.parse(productResult);
-          return productResult;
-      }
+      <%--function getProductById(id) {--%>
+      <%--    var productResult = "";--%>
+      <%--    var product = {};--%>
+      <%--    product.id = id;--%>
+      <%--    $.ajax({--%>
+      <%--        async : false, //设置同步--%>
+      <%--        type : 'POST',--%>
+      <%--        url : '${cp}/getProductById',--%>
+      <%--        data : product,--%>
+      <%--        dataType : 'json',--%>
+      <%--        success : function(result) {--%>
+      <%--            productResult = result.result;--%>
+      <%--        },--%>
+      <%--        error : function(result) {--%>
+      <%--            layer.alert('查询错误');--%>
+      <%--        }--%>
+      <%--    });--%>
+      <%--    productResult = JSON.parse(productResult);--%>
+      <%--    return productResult;--%>
+      <%--}--%>
 
       function getUserAddress(id) {
           var address = "";

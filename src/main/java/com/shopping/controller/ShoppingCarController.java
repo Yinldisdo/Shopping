@@ -26,7 +26,7 @@ public class ShoppingCarController {
 
     @RequestMapping(value = "/shopping_car")
     public String shopping_car(){
-        return "shopping_car";
+        return "shopping_car.jspbackup";
     }
 
     @RequestMapping(value = "/addShoppingCar",method = RequestMethod.POST)

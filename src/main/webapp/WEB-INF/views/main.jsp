@@ -8,17 +8,15 @@
 	  <meta charset="utf-8">
 	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
-	  <title>天津科技大学跳蚤市场</title>
+	  <title>天科闲置 - 天津科技大学跳蚤市场</title>
 	  <link href="${cp}/css/bootstrap.min.css" rel="stylesheet">
 	  <link href="${cp}/css/style.css" rel="stylesheet">
 
 	  <script src="${cp}/js/jquery.min.js" type="text/javascript"></script>
 	  <script src="${cp}/js/bootstrap.min.js" type="text/javascript"></script>
 	  <script src="${cp}/js/layer.js" type="text/javascript"></script>
-    <!--[if lt IE 9]>
       <script src="${cp}/js/html5shiv.min.js"></script>
       <script src="${cp}/js/js/respond.min.js"></script>
-    <![endif]-->
   </head>
   <body>
     <!--导航栏部分-->
@@ -42,7 +40,7 @@
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				<div class="jumbotron">
 					<h1>欢迎来到天科闲置</h1>
-					<p>购物+是一个非常优秀的购物网站，你可以在这里买到物美价廉的东西，虽然它只是练习用的项目，哈哈哈哈</p>
+					<p>失去双脚，获得穿越时间的力量，这就是等价交换</p>
 				</div>
 
 				<div name="productArea1" class="row pd-10" id="productArea1">

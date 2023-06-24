@@ -23,11 +23,8 @@
   <script src="${cp}/js/ajaxfileupload.js" type="text/javascript"></script>
   <script src="${cp}/js/bootstrap.min.js" type="text/javascript"></script>
   <script src="${cp}/js/layer.js" type="text/javascript"></script>
-
-  <!--[if lt IE 9]>
       <script src="${cp}/js/html5shiv.min.js"></script>
       <script src="${cp}/js/respond.min.js"></script>
-    <![endif]-->
 </head>
 <body>
 <!--Header-->

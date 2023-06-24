@@ -8,17 +8,15 @@
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>购物+</title>
+      <title>天科闲置</title>
       <link href="${cp}/css/bootstrap.min.css" rel="stylesheet">
       <link href="${cp}/css/style.css" rel="stylesheet">
 
       <script src="${cp}/js/jquery.min.js" type="text/javascript"></script>
       <script src="${cp}/js/bootstrap.min.js" type="text/javascript"></script>
       <script src="${cp}/js/layer.js" type="text/javascript"></script>
-    <!--[if lt IE 9]>
       <script src="${cp}/js/html5shiv.min.js"></script>
-      <script src="${cp}/js/respond.min.js"></script>
-    <![endif]-->
+      <script src="${cp}/js/js/respond.min.js"></script>
   </head>
   <body>
     <!--导航栏部分-->
@@ -33,7 +31,7 @@
             <!-- 表单输入 -->
             <div  class="form-horizontal">
                 <div class="form-group">
-                    <label for="inputEmail" class="col-sm-2 col-md-2 control-label">邮箱/用户名</label>
+                    <label for="inputEmail" class="col-sm-2 col-md-2 control-label">用户名</label>
                     <div class="col-sm-6 col-md-6">
                         <input type="text" class="form-control" id="inputEmail" placeholder="xxxxxx@xx.com"/>
                     </div>
@@ -84,10 +82,10 @@
                 window.location.href = "${cp}/main";
             }
             else if(loginResult == 'unexist'){
-                layer.msg('是不是用户名记错了？',{icon:2});
+                layer.msg('用户不存在',{icon:2});
             }
             else if(loginResult == 'wrong'){
-                layer.msg('密码不对哦，再想想~',{icon:2});
+                layer.msg('用户名/密码错误',{icon:2});
             }
             else if(loginResult == 'fail'){
                 layer.msg('服务器异常',{icon:2});

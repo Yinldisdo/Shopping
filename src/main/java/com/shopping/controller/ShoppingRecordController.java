@@ -29,12 +29,12 @@ public class ShoppingRecordController {
 
     @RequestMapping(value = "/shopping_record")
     public String shopping_record(){
-        return "shopping_record";
+        return "shopping_record.jspbackup";
     }
 
     @RequestMapping(value = "/shopping_handle")
     public String shopping_handle(){
-        return "shopping_handle";
+        return "shopping_handle.jspbackup";
     }
 
     @RequestMapping(value = "/addShoppingRecord",method = RequestMethod.POST)

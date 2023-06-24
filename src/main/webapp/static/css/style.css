@@ -27,8 +27,8 @@ div:hover {
     padding: 20px;
     overflow-x: hidden;
     overflow-y: auto;
-    background-color: #f5f5f5;
-    border-right: 1px solid #eee;
+    background-color: #99ccff;
+    border-right: 1px solid #99ccff;
   }
 }
 
@@ -44,7 +44,7 @@ div:hover {
 .nav-sidebar > .active > a,
 .nav-sidebar > .active > a:hover,
 .nav-sidebar > .active > a:focus {
-  color: #fff;
+  color: #36c;
   background-color: #428bca;
 }
 

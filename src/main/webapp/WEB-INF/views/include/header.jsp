@@ -37,22 +37,14 @@
                     <li><a href="${cp}/login" methods="post">登录</a></li>
                 </c:if>
                 <c:if test="${not empty currentUser}">
-<%--                    <c:if test="${currentUser.role == 1}">--%>
-<%--                        <li><a href="${cp}/control" methods="post">控制台</a></li>--%>
-<%--                    </c:if>--%>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 ${currentUser.nickName}
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-<%--                            <li><a href="${cp}/shopping_car">购物车</a></li>--%>
-<%--                            <li><a href="${cp}/shopping_record">订单状态</a></li>--%>
-<%--                            <c:if test="${currentUser.role == 1}">--%>
-<%--                                <li><a href="${cp}/shopping_handle">处理订单</a></li>--%>
-<%--                            </c:if>--%>
-                            <li><a href="${cp}/manage">我的闲置</a></li>
-                            <li><a href="${cp}/amend_info">个人资料修改</a></li>
+                            <li><a href="${cp}/second_hand_manage">我的闲置</a></li>
+                            <li><a href="${cp}/amend_info">资料修改</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="${cp}/doLogout">注销</a></li>
                         </ul>

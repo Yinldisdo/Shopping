@@ -13,10 +13,8 @@
     <link href="${cp}/css/style.css" rel="stylesheet">
 
     <script src="${cp}/js/bootstrap.min.js"></script>
-    <!--[if lt IE 9]>
     <script src="${cp}/js/html5shiv.min.js"></script>
     <script src="${cp}/js/respond.min.js"></script>
-    <![endif]-->
 </head>
 <body>
     <!-- FOOTER -->
