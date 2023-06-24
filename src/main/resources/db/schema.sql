@@ -2,9 +2,6 @@ create database if not exists shopping  character set utf8 collate utf8_general_
 
 use shopping;
 
-drop table if exists shopping_car;
-drop table if exists shopping_record;
-drop table if exists evaluation;
 drop table if exists user_detail;
 drop table if exists user_main;
 drop table if exists products;
@@ -45,39 +42,4 @@ create table if not exists products(
 	user_id varchar(32) not null,
 	primary key(id),
 	unique(name)
-);
-
-
-create table if not exists shopping_car(
-	user_id int not null,
-	product_id int not null,
-	product_price int not null,
-	counts int not null,
-	primary key (user_id,product_id),
-	foreign key (user_id) references user_main(id),
-	foreign key (product_id) references products(id)
-);
-
-
-create table if not exists shopping_record(
-	user_id int not null,
-	product_id int not null,
-	time varchar(20) not null,
-	order_status int not null,
-	product_price int not null,
-	counts int not null,
-	primary key (user_id,product_id,time),
-	foreign key (user_id) references user_main(id),
-	foreign key (product_id) references products(id)
-);
-
-
-create table if not exists evaluation(
-	user_id int not null,
-	product_id int not null,
-	time varchar(20) not null,
-	content varchar(1000) not null,
-	primary key (user_id,product_id,time),
-	foreign key (user_id) references user_main(id),
-	foreign key (product_id) references products(id)
 );
