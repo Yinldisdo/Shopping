@@ -4,9 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
-/**
- * Created by 14437 on 2017/3/1.
- */
+
 @Entity
 @Table(name="products")
 public class Product {
@@ -20,7 +18,7 @@ public class Product {
     private String user_id;
 
     @Id
-    @GenericGenerator(name = "generator", strategy = "increment") //设置主键自增
+    @GenericGenerator(name = "generator", strategy = "increment")
     @GeneratedValue(generator = "generator")
 
     @Column(name="id")

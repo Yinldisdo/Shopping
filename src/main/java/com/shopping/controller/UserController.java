@@ -18,9 +18,7 @@ import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-/**
- * Created by 14437 on 2017/3/1.
- */
+
 @Controller
 public class UserController {
 
@@ -84,8 +82,8 @@ public class UserController {
 
     @RequestMapping(value = "/doRegister", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> doRegister(String userName, String email, String nickName, String password, String phoneNumber, int sex, String birthday, String postNumber, String address) {
-
+    public Map<String, Object> doRegister(String userName, String email, String nickName, String password, String phoneNumber,
+                                          int sex, String birthday, String postNumber, String address) {
         String result = "fail";
         User user = userService.getUser(userName);
         if (user != null) {
@@ -130,7 +128,8 @@ public class UserController {
 
     @RequestMapping(value = "/doUpdate", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> doUpdate(String userName, String email, String nickName, String password, String phoneNumber, int sex, String birthday, String postNumber, String address) {
+    public Map<String, Object> doUpdate(String userName, String email, String nickName, String password,
+                                        String phoneNumber, int sex, String birthday, String postNumber, String address) {
         String result = "fail";
         User user = userService.getUser(userName);
         user.setEmail(email);
@@ -150,25 +149,6 @@ public class UserController {
         return resultMap;
     }
 
-    @RequestMapping(value = "/getAllUser", method = RequestMethod.POST)
-    @ResponseBody
-    public Map<String, Object> getAllUser() {
-//        System.out.println("我接收到了获取用户请求");
-        List<User> userList = new ArrayList<>();
-        userList = userService.getAllUser();
-        String allUsers = JSONArray.toJSONString(userList);
-//        System.out.println("我返回的结果是"+allUsers);
-        Map<String,Object> resultMap = new HashMap<String,Object>();
-        resultMap.put("allUsers",allUsers);
-        return resultMap;
-    }
-
-    //2018.04.08 修改BUG 这种方法为前后端交互推荐写法
-    @RequestMapping(value = "/deleteUser", method = RequestMethod.POST)
-    @ResponseBody
-    public Response deleteUser(int id) {
-        return userService.deleteUser(id);
-    }
 
     @RequestMapping(value = "/getUserAddressAndPhoneNumber", method = RequestMethod.POST)
     @ResponseBody

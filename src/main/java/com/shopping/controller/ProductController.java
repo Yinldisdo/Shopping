@@ -21,9 +21,6 @@ import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.util.*;
 
-/**
- * Created by 14437 on 2017/3/1.
- */
 @Controller
 public class ProductController {
     @Resource
@@ -45,7 +42,6 @@ public class ProductController {
         return resultMap;
     }
 
-    //推荐写法
     @RequestMapping(value = "/deleteProduct", method = RequestMethod.POST)
     @ResponseBody
     public Response deleteProduct(int id) {
